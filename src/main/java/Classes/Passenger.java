@@ -6,15 +6,12 @@ import Enums.State;
 import java.util.Random;
 
 public class Passenger {
-    private int passengerIDGenerator = 1;
-    private int passengerId;
     private Direction direction;
     private int destinationFloor;
     private State state;
 
     public Passenger(int initFloor, int floors) {
         super();
-        this.passengerId = ++passengerIDGenerator;
         this.destinationFloor = calculateDestinationFloor(initFloor, floors);
         state = State.NOT_STARTED;
         if(destinationFloor < initFloor){
@@ -46,8 +43,7 @@ public class Passenger {
 
     @Override
     public String toString(){
-        return "Id: " + passengerId +
-                "\nDirection: " + direction +
+        return "Id: " + "\nDirection: " + direction +
                 "\nDestinationFloor:" + destinationFloor;
     }
 
