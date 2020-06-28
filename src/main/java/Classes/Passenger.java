@@ -4,14 +4,19 @@ import Enums.Direction;
 import Enums.State;
 
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Passenger {
+    private static final AtomicInteger idGenerator = new AtomicInteger(1);
+
+    private int id;
     private Direction direction;
     private int destinationFloor;
     private State state;
 
     public Passenger(int initFloor, int floors) {
         super();
+        this.id = idGenerator.getAndIncrement();
         this.destinationFloor = calculateDestinationFloor(initFloor, floors);
         state = State.NOT_STARTED;
         if(destinationFloor < initFloor){
@@ -19,6 +24,10 @@ public class Passenger {
         }else {
             direction = Direction.UP;
         }
+    }
+
+    public int getId(){
+        return id;
     }
 
     public void setDestinationFloor(int destinationFloor) {
@@ -43,7 +52,8 @@ public class Passenger {
 
     @Override
     public String toString(){
-        return "\nDirection: " + direction +
+        return  "Id: " + id +
+                "\nDirection: " + direction +
                 "\nDestinationFloor:" + destinationFloor;
     }
 
