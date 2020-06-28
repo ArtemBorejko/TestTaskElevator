@@ -6,7 +6,6 @@ import Enums.State;
 import java.util.Random;
 
 public class Passenger {
-    private int id;
     private Direction direction;
     private int destinationFloor;
     private State state;
