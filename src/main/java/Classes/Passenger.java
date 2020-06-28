@@ -6,6 +6,7 @@ import Enums.State;
 import java.util.Random;
 
 public class Passenger {
+    private int id;
     private Direction direction;
     private int destinationFloor;
     private State state;
@@ -43,7 +44,7 @@ public class Passenger {
 
     @Override
     public String toString(){
-        return "Id: " + "\nDirection: " + direction +
+        return "\nDirection: " + direction +
                 "\nDestinationFloor:" + destinationFloor;
     }
 
